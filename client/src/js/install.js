@@ -1,11 +1,12 @@
 const butInstall = document.getElementById('buttonInstall');
 
 window.addEventListener('beforeinstallprompt', (event) => {
+  event.preventDefault();
   // Save the event for later use
-  window.deferredPrompt = e;
+  window.deferredPrompt = event;
 
   // Show the install button
-  butInstall.classList.remove('hidden', false);
+  butInstall.classList.toggle('hidden', false);
 });
 
 butInstall.addEventListener('click', async () => {
