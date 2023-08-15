@@ -26,9 +26,23 @@ warmStrategyCache({
 
 registerRoute(({ request }) => request.mode === 'navigate', pageCache);
 
-// Cache worker
+// Asset caching
+const assetCache = new CacheFirst({
+  cacheName: 'asset-cache',
+  plugins: [
+    new CacheableResponsePlugin({
+      statuses: [0, 200],
+    }),
+    new ExpirationPlugin({
+      maxAgeSeconds: 30 * 24 * 60 * 60, // 30 days
+      maxEntries: 50, // Limit the number of entries in the cache
+    }),
+  ],
+});
+
+// Cache images
 registerRoute(
-  ({ request }) => request.destination === 'worker',
+  ({ request }) => request.destination === 'image',
   assetCache
 );
 
@@ -43,13 +57,3 @@ registerRoute(
   ({ request }) => request.destination === 'script',
   assetCache
 );
-
-// Asset caching
-const assetCache = new CacheFirst({
-  cacheName: 'asset-cache',
-  plugins: [
-    new CacheableResponsePlugin({
-      statuses: [0, 200],
-    }),
-  ],
-});
