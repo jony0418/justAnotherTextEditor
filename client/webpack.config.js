@@ -8,7 +8,10 @@ module.exports = () => {
     mode: 'development',
     entry: {
       main: './src/js/index.js',
-      install: './src/js/install.js'
+      install: './src/js/install.js',
+      database: './src/js/database.js',
+      editor: './src/js/editor.js',   
+      Headers: './src/js/Headers.js',
     },
     output: {
       filename: '[name].bundle.js',
@@ -20,10 +23,15 @@ module.exports = () => {
         title: 'justAnotherTextEditor'
       }),
       new WebpackPwaManifest({
+        fingerprints: false,
+        inject: true,
         name: 'justAnotherTextEditor',
         short_name: 'JATE',
         description: 'Takes notes on javascrip',
         background_color: '#ffffff',
+        theme_color: '#ffffff',
+        start_url: '/',
+        publicPath: '/',
         icons: [
           {
             src: path.resolve('./src/images/logo.png'),
