@@ -1,6 +1,3 @@
-Certainly! A well-crafted README file is essential for any project, as it provides an overview of the project, instructions for setting it up, and other useful information. Here's a template for your project's README.md file:
-
----
 
 # JATE - Just Another Text Editor
 
