@@ -77,7 +77,3 @@ This project is licensed under the MIT License - see the [LICENSE.md](LICENSE.md
 ## Acknowledgments
 
 - Thanks to the amazing open-source community for the inspiration and support.
-
----
-
-Feel free to customize this template to fit your project's specific needs and details. Make sure to update the URLs, paths, and other specific information to match your project.
